@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKY PREMIUM TOOLS • BLACKHITT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- AI Assistant Floating -->
+    <div class="ai-assistant" id="aiAssistant">
+        <div class="ai-icon" onclick="toggleAI()">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="ai-chat" id="aiChat" style="display: none;">
+            <div class="ai-header">
+                <i class="fas fa-brain"></i>
+                <span>SKY AI ASSISTANT</span>
+                <button onclick="toggleAI()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="ai-messages" id="aiMessages">
+                <div class="ai-message bot">
+                    <i class="fas fa-robot"></i>
+                    <div>Halo Sky! Saya asisten pribadi lu. Mau beli jasa atau aplikasi apa hari ini?</div>
+                </div>
+            </div>
+            <div class="ai-input">
+                <input type="text" id="aiInput" placeholder="Tanya apa aja..." onkeypress="handleAIKey(event)">
+                <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="glitch" data-text="BLACKHITT">BLACKHITT</span>
+                <span class="version">v4.2.0</span>
+            </div>
+            <div class="tagline">Premium Marketplace • Since 2026</div>
+        </div>
+
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <div class="welcome-card">
+                <h1 class="typing-effect" id="typingText"></h1>
+                <p>Marketplace jasa hacking & aplikasi premium terlengkap. Langsung ke owner.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span>Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span>Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span>Working</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OWNER SECTION - ALWAYS VISIBLE -->
+        <div class="owner-section">
+            <div class="owner-card" onclick="window.open('https://t.me/mrblackhitt', '_blank')">
+                <i class="fab fa-telegram-plane"></i>
+                <div class="owner-info">
+                    <h3>OWNER: @mrblackhitt</h3>
+                    <p>Klik untuk chat • 24/7 Online</p>
+                </div>
+                <span class="owner-badge">ONLINE</span>
+            </div>
+        </div>
+
+        <!-- SERVICES SECTION -->
+        <div class="section-title">
+            <i class="fas fa-crown"></i>
+            <h2>PREMIUM SERVICES</h2>
+            <i class="fas fa-crown"></i>
+        </div>
+
+        <div class="services-grid">
+            <!-- BANNED SOSMED -->
+            <div class="service-card" onclick="redirectOwner('Banned Sosmed')">
+                <div class="service-icon">
+                    <i class="fas fa-ban"></i>
+                </div>
+                <h3>BANNED SOSMED</h3>
+                <p>Banned akun Instagram, Facebook, TikTok, Twitter permanen</p>
+                <div class="service-footer">
+                    <span class="price">START 50K</span>
+                    <span class="click-hint"><i class="fas fa-bolt"></i> CLAIM</span>
+                </div>
+            </div>
+
+            <!-- BANNED NOMER WA -->
+            <div class="service-card" onclick="redirectOwner('Banned Nomer WA')">
+                <div class="service-icon">
+                    <i class="fas fa-phone-slash"></i>
+                </div>
+                <h3>BANNED NOMER WA</h3>
+                <p>Banned permanen nomor WhatsApp target</p>
+                <div class="service-footer">
+                    <span class="price">START 75K</span>
+                    <span class="click-hint"><i class="fas fa-bolt"></i> CLAIM</span>
+                </div>
+            </div>
+
+            <!-- UNBAN NOMER WA -->
+            <div class="service-card" onclick="redirectOwner('Unban Nomer WA')">
+                <div class="service-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>UNBAN NOMER WA</h3>
+                <p>Balikin nomor WA yang kena banned permanen</p>
+                <div class="service-footer">
+                    <span class="price">START 150K</span>
+                    <span class="click-hint"><i class="fas fa-bolt"></i> CLAIM</span>
+                </div>
+            </div>
+
+            <!-- WEB SUNTIK SOSMED -->
+            <div class="service-card" onclick="redirectOwner('Web Suntik Sosmed')">
+                <div class="service-icon">
+                    <i class="fas fa-syringe"></i>
+                </div>
+                <h3>WEB SUNTIK SOSMED</h3>
+                <p>Tools inject followers, likes, views otomatis</p>
+                <div class="service-footer">
+                    <span class="price">START 100K</span>
+                    <span class="click-hint"><i class="fas fa-bolt"></i> CLAIM</span>
+                </div>
+            </div>
+
+            <!-- NOKOS -->
+            <div class="service-card" onclick="redirectOwner('Nokos')">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>NOKOS</h3>
+                <p>Nomor kosong semua operator, siap verifikasi</p>
+                <div class="service-footer">
+                    <span class="price">START 5K</span>
+                    <span class="click-hint"><i class="fas fa-bolt"></i> CLAIM</span>
+                </div>
+            </div>
+
+            <!-- HACKING -->
+            <div class="service-card" onclick="redirectOwner('Hacking Services')">
+                <div class="service-icon">
+                    <i class="fas fa-skull"></i>
+                </div>
+                <h3>HACKING</h3>
+                <p>Jasa hack IG, FB, WA, ML, Free Fire, dll</p>
+                <div class="service-footer">
+                    <span class="price">START 200K</span>
+                    <span class="click-hint"><i class="fas fa-bolt"></i> CLAIM</span>
+                </div>
+            </div>
+
+            <!-- CODING WEB -->
+            <div class="service-card" onclick="redirectOwner('Coding Web')">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>CODING WEB</h3>
+                <p>Buat website, landing page, tools auto profit</p>
+                <div class="service-footer">
+                    <span class="price">START 300K</span>
+                    <span class="click-hint"><i class="fas fa-bolt"></i> CLAIM</span>
+                </div>
+            </div>
+
+            <!-- CRACKER -->
+            <div class="service-card" onclick="redirectOwner('Cracker')">
+                <div class="service-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>CRACKER</h3>
+                <p>Crack password, hash, file, aplikasi premium</p>
+                <div class="service-footer">
+                    <span class="price">START 100K</span>
+                    <span class="click-hint"><i class="fas fa-bolt"></i> CLAIM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PREMIUM APPS SECTION - WA MODS & APPS -->
+        <div class="section-title">
+            <i class="fas fa-download"></i>
+            <h2>PREMIUM APPS • WA MODS</h2>
+            <i class="fas fa-download"></i>
+        </div>
+
+        <div class="apps-grid">
+            <!-- DELTA GB -->
+            <div class="app-card premium" onclick="redirectOwner('Delta GB Premium')">
+                <div class="app-badge">HOT</div>
+                <div class="app-icon">
+                    <i class="fas fa-message"></i>
+                </div>
+                <h3>DELTA GB</h3>
+                <div class="app-version">v3.4.3 • Base GB 25.80</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> Anti Delete</span>
+                    <span><i class="fas fa-check"></i> Blur UI</span>
+                    <span><i class="fas fa-check"></i> IOS v2 Style</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">PREMIUM</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+
+            <!-- GBWhatsApp -->
+            <div class="app-card" onclick="redirectOwner('GBWhatsApp Pro')">
+                <div class="app-icon">
+                    <i class="fas fa-message"></i>
+                </div>
+                <h3>GBWhatsApp</h3>
+                <div class="app-version">v25.80 • Mod Terbaru</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> Hide Online</span>
+                    <span><i class="fas fa-check"></i> 700MB Video</span>
+                    <span><i class="fas fa-check"></i> Themes</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">PREMIUM</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+
+            <!-- FM WhatsApp -->
+            <div class="app-card" onclick="redirectOwner('FM WhatsApp')">
+                <div class="app-icon">
+                    <i class="fas fa-message"></i>
+                </div>
+                <h3>FM WhatsApp</h3>
+                <div class="app-version">Fouad Mod • v25.80</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> 1000+ Themes</span>
+                    <span><i class="fas fa-check"></i> Privacy Guard</span>
+                    <span><i class="fas fa-check"></i> Anti Ban</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">PREMIUM</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+
+            <!-- YoWhatsApp -->
+            <div class="app-card" onclick="redirectOwner('YoWhatsApp')">
+                <div class="app-icon">
+                    <i class="fas fa-message"></i>
+                </div>
+                <h3>YoWhatsApp</h3>
+                <div class="app-version">YOWA v25.80</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> Custom Icons</span>
+                    <span><i class="fas fa-check"></i> Font Changer</span>
+                    <span><i class="fas fa-check"></i> Status Saver</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">PREMIUM</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+
+            <!-- WA Business Premium -->
+            <div class="app-card" onclick="redirectOwner('WA Business Premium')">
+                <div class="app-badge">UNLOCK</div>
+                <div class="app-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>WA Business+</h3>
+                <div class="app-version">Mod with API</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> Auto Reply</span>
+                    <span><i class="fas fa-check"></i> Broadcast 1000+</span>
+                    <span><i class="fas fa-check"></i> Unlock Features</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">PREMIUM</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+
+            <!-- ULTRA WhatsApp -->
+            <div class="app-card" onclick="redirectOwner('ULTRA WhatsApp')">
+                <div class="app-icon">
+                    <i class="fas fa-message"></i>
+                </div>
+                <h3>ULTRA WhatsApp</h3>
+                <div class="app-version">Package: com.ultra</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> 3 in 1</span>
+                    <span><i class="fas fa-check"></i> 4K Status</span>
+                    <span><i class="fas fa-check"></i> Ghost Mode</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">PREMIUM</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+
+            <!-- UNIVERSE Messenger -->
+            <div class="app-card" onclick="redirectOwner('UNIVERSE Messenger')">
+                <div class="app-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>UNIVERSE</h3>
+                <div class="app-version">Package: com.universe</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> All-in-One</span>
+                    <span><i class="fas fa-check"></i> Custom ROM</span>
+                    <span><i class="fas fa-check"></i> No Ads</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">PREMIUM</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+
+            <!-- SATHWBG -->
+            <div class="app-card" onclick="redirectOwner('SATHWBG')">
+                <div class="app-icon">
+                    <i class="fas fa-message"></i>
+                </div>
+                <h3>SATHWBG</h3>
+                <div class="app-version">Special Edition</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> Exclusive</span>
+                    <span><i class="fas fa-check"></i> Stable</span>
+                    <span><i class="fas fa-check"></i> Fast</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">PREMIUM</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PREMIUM APPS SECTION 2 - OTHER APPS -->
+        <div class="section-title">
+            <i class="fas fa-crown"></i>
+            <h2>PREMIUM APPS • LAINNYA</h2>
+            <i class="fas fa-crown"></i>
+        </div>
+
+        <div class="apps-grid">
+            <!-- Spotify Premium -->
+            <div class="app-card" onclick="redirectOwner('Spotify Premium')">
+                <div class="app-icon">
+                    <i class="fab fa-spotify"></i>
+                </div>
+                <h3>Spotify Premium</h3>
+                <div class="app-version">Mod APK + Account</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> No Ads</span>
+                    <span><i class="fas fa-check"></i> Unlimited Skip</span>
+                    <span><i class="fas fa-check"></i> Offline</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">START 25K</span>
+                    <span class="app-link"><i class="fas fa-download"></i> BUY</span>
+                </div>
+            </div>
+
+            <!-- Netflix Premium -->
+            <div class="app-card" onclick="redirectOwner('Netflix Premium')">
+                <div class="app-icon">
+                    <i class="fab fa-netflix"></i>
+                </div>
+                <h3>Netflix Premium</h3>
+                <div class="app-version">Account 4K UHD</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> 4K</span>
+                    <span><i class="fas fa-check"></i> 4 Devices</span>
+                    <span><i class="fas fa-check"></i> 1 Year</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">START 35K</span>
+                    <span class="app-link"><i class="fas fa-download"></i> BUY</span>
+                </div>
+            </div>
+
+            <!-- Canva Pro -->
+            <div class="app-card" onclick="redirectOwner('Canva Pro')">
+                <div class="app-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Canva Pro</h3>
+                <div class="app-version">Mod + Account</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> Premium Elements</span>
+                    <span><i class="fas fa-check"></i> Background Remover</span>
+                    <span><i class="fas fa-check"></i> Templates</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">START 20K</span>
+                    <span class="app-link"><i class="fas fa-download"></i> BUY</span>
+                </div>
+            </div>
+
+            <!-- CapCut Pro -->
+            <div class="app-card" onclick="redirectOwner('CapCut Pro')">
+                <div class="app-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>CapCut Pro</h3>
+                <div class="app-version">Mod APK</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> No Watermark</span>
+                    <span><i class="fas fa-check"></i> Premium Effects</span>
+                    <span><i class="fas fa-check"></i> Export 4K</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">START 30K</span>
+                    <span class="app-link"><i class="fas fa-download"></i> BUY</span>
+                </div>
+            </div>
+
+            <!-- Lightroom Premium -->
+            <div class="app-card" onclick="redirectOwner('Lightroom Premium')">
+                <div class="app-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3>Lightroom</h3>
+                <div class="app-version">Mod + Presets</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> Premium Presets</span>
+                    <span><i class="fas fa-check"></i> Healing Brush</span>
+                    <span><i class="fas fa-check"></i> Cloud</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">START 25K</span>
+                    <span class="app-link"><i class="fas fa-download"></i> BUY</span>
+                </div>
+            </div>
+
+            <!-- Alight Motion -->
+            <div class="app-card" onclick="redirectOwner('Alight Motion')">
+                <div class="app-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>Alight Motion</h3>
+                <div class="app-version">Mod + Plugins</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> No Watermark</span>
+                    <span><i class="fas fa-check"></i> Premium Assets</span>
+                    <span><i class="fas fa-check"></i> 60FPS</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">START 35K</span>
+                    <span class="app-link"><i class="fas fa-download"></i> BUY</span>
+                </div>
+            </div>
+
+            <!-- IDM Premium -->
+            <div class="app-card" onclick="redirectOwner('IDM Premium')">
+                <div class="app-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3>IDM+</h3>
+                <div class="app-version">Internet Download Manager</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> 32x Speed</span>
+                    <span><i class="fas fa-check"></i> Torrent</span>
+                    <span><i class="fas fa-check"></i> ADM</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">START 25K</span>
+                    <span class="app-link"><i class="fas fa-download"></i> BUY</span>
+                </div>
+            </div>
+
+            <!-- YouTube Vanced -->
+            <div class="app-card" onclick="redirectOwner('YouTube Vanced')">
+                <div class="app-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <h3>YouTube Vanced</h3>
+                <div class="app-version">ReVanced + MicroG</div>
+                <div class="app-features">
+                    <span><i class="fas fa-check"></i> No Ads</span>
+                    <span><i class="fas fa-check"></i> Background Play</span>
+                    <span><i class="fas fa-check"></i> SponsorBlock</span>
+                </div>
+                <div class="app-footer">
+                    <span class="app-price">FREE</span>
+                    <span class="app-link"><i class="fas fa-download"></i> GET</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- GROUPS SECTION -->
+        <div class="section-title">
+            <i class="fas fa-users"></i>
+            <h2>COMMUNITY GROUPS</h2>
+            <i class="fas fa-users"></i>
+        </div>
+
+        <div class="groups-grid">
+            <div class="group-card" onclick="window.open('https://t.me/termux_indonesia_01', '_blank')">
+                <i class="fab fa-telegram"></i>
+                <div>
+                    <h3>TERMOX INDONESIA</h3>
+                    <p>@termux_indonesia_01</p>
+                </div>
+                <span class="group-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+            
+            <div class="group-card" onclick="window.open('https://t.me/allfiturblackhitt', '_blank')">
+                <i class="fab fa-telegram"></i>
+                <div>
+                    <h3>ALL FITUR BLACKHITT</h3>
+                    <p>@allfiturblackhitt</p>
+                </div>
+                <span class="group-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+
+        <!-- FEATURES SUMMARY -->
+        <div class="features-summary">
+            <h3>TOTAL PREMIUM COLLECTION:</h3>
+            <div class="feature-tags">
+                <span>🔥 20+ WA Mods (GB/Delta/FM/Yo/Ultra)</span>
+                <span>📱 15+ Premium Apps</span>
+                <span>💰 8 Jasa Services</span>
+                <span>🤖 AI Assistant 24/7</span>
+                <span>👤 Owner Direct</span>
+                <span>🚀 Instant Delivery</span>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>© 2026 BLACKHITT • All Rights Reserved</p>
+            <p>Klik produk langsung ke owner • Harga kompetitor? kita lebih murah</p>
+            <p class="disclaimer">Untuk penggunaan bertanggung jawab • Kami tidak bertanggung jawab atas penyalahgunaan</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
